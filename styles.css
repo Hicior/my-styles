@@ -20,7 +20,7 @@ body {
 }
 
 .custom-image {
-    width: 70px; /* Ustaw mniejszą szerokość obrazka */
+    width: 40px; /* Ustaw mniejszą szerokość obrazka */
     height: auto; /* Zachowanie proporcji obrazka */
 }
 
