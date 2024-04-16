@@ -1,6 +1,6 @@
 body {
-    background-color: #F4F6F8; /* Przykładowy kolor tła */
-    color: white;
+    background-color: #F4F6F8; /* Ten kolor zostanie użyty jako tło dla całego body */
+    color: #333; /* Zmieniono na ciemniejszy kolor tekstu dla lepszej czytelności */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -12,6 +12,7 @@ body {
 
 .custom-container {
     text-align: center; /* Centruje tekst w poziomie */
+    /* Dodaj tutaj wszystkie inne style dla .custom-container, jeśli potrzebujesz */
 }
 
 .custom-image-container {
@@ -19,19 +20,18 @@ body {
 }
 
 .custom-image {
-    width: 100px; /* Przykładowa szerokość obrazka */
+    width: 40px; /* Ustaw mniejszą szerokość obrazka */
     height: auto; /* Zachowanie proporcji obrazka */
 }
 
-.custom-heading {
-    background-color: #13334d;
-    color: white;
-    display: inline-block; /* By tło obejmowało tylko tekst */
-    padding: 0 4px;
+.elementor-heading-title {
+    /* Dodaj tutaj wszystkie inne style dla .elementor-heading-title, jeśli potrzebujesz */
 }
 
 .highlight {
-    background-color: #13334d;
-    color: white;
-    padding: 0 4px; /* Przykładowa wartość, dostosuj do potrzeb */
+    background-color: #13334d; /* Tło dla wyróżnionego tekstu */
+    color: white; /* Kolor tekstu dla wyróżnienia */
+    padding: 0.2em 0.4em; /* Wewnętrzne wypełnienie */
+    /* Usunięto display: inline-block; to jest już domyślnie dla span */
 }
+
