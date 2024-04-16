@@ -1,58 +1,75 @@
-body {
+/* Globalne style dla całego dokumentu */
+.body {
     background-color: #F9F8F6;
     color: #333;
-    font-family: montserrat,Sans-serif;
+    font-family: 'Montserrat', Sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.custom-container {
+/* Stylowanie specyficzne dla sekcji firmowej */
+.section-firmy__container {
     text-align: center;
-    width: 80%; /* Ustaw szerokość na 80% ekranu */
-    max-width: 1200px; /* i ogranicz maksymalną szerokość jeśli potrzeba */
-    margin: 0 auto; /* Automatyczny margines powoduje wyśrodkowanie kontenera */
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.custom-image-container {
-    margin-bottom: 10px; /* Dystans między obrazkiem a tekstem */
-}
-
-.custom-image {
-    width: 40px; /* Ustaw mniejszą szerokość obrazka */
-    height: auto; /* Zachowanie proporcji obrazka */
-}
-
-.elementor-heading-title {
-    color: #505050;
-    font-family: montserrat,Sans-serif;
-    font-weight: 700;
-    line-height: 50px
-}
-
-.highlight {
-    background-color: #13334d; /* Tło dla wyróżnionego tekstu */
-    color: white; /* Kolor tekstu dla wyróżnienia */
-    padding: 0.2em 0.4em; /* Wewnętrzne wypełnienie */
-    /* Usunięto display: inline-block; to jest już domyślnie dla span */
-}
-
-.elementor-heading-titleV2 {
+.section-firmy__title {
     color: #13334d;
-    font-family: montserrat,Sans-serif;
+    font-family: 'Montserrat', Sans-serif;
     font-size: 36px;
     font-weight: 700;
 }
 
-.test {
+.section-firmy__flex-container {
     display: flex;
     flex-direction: column;
-    container-widget-width: 100%;
-    container-widget-height: initial;
-    container-widget-flex-grow: 0;
-    container-widget-align-self: initial;
-    background-transition: 0.3s;
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+    align-self: center;
+    transition: background 0.3s;
     margin-top: -7%;
-    margin-bottom: 0%;
-    margin-left: 0%;
-    margin-right: 0%
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
+
+/* Stylowanie specyficzne dla sekcji kontaktowej */
+.section-kontakt__container {
+    text-align: center;
+    width: 80%;
+    max-width: 1000px; /* Lekko węższe dla kontrastu */
+    margin: 20px auto;
+}
+
+.section-kontakt__image-container {
+    margin-bottom: 10px;
+}
+
+.section-kontakt__image {
+    width: 40px;
+    height: auto;
+}
+
+.section-kontakt__heading {
+    color: #505050;
+    font-family: 'Montserrat', Sans-serif;
+    font-weight: 700;
+    line-height: 50px;
+}
+
+.section-kontakt__highlight {
+    background-color: #13334d;
+    color: white;
+    padding: 0.2em 0.4em;
+}
+
+/* Media queries dla odpowiedzi na zmiany rozmiarów ekranu */
+@media (max-width: 768px) {
+    .section-firmy__container, .section-kontakt__container {
+        width: 95%;
+    }
+}
+
