@@ -1,5 +1,5 @@
 body {
-    background-color: #F4F6F8; /* Ten kolor zostanie użyty jako tło dla całego body */
+    background-color: #FFFF66; /* Ten kolor zostanie użyty jako tło dla całego body */
     color: #333; /* Zmieniono na ciemniejszy kolor tekstu dla lepszej czytelności */
     font-family: Arial, sans-serif;
     margin: 0;
@@ -20,7 +20,7 @@ body {
 }
 
 .custom-image {
-    width: 20px; /* Ustaw mniejszą szerokość obrazka */
+    width: 30px; /* Ustaw mniejszą szerokość obrazka */
     height: auto; /* Zachowanie proporcji obrazka */
 }
 
