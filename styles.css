@@ -1,18 +1,16 @@
 body {
-    background-color: #F9F8F6; /* Ten kolor zostanie użyty jako tło dla całego body */
-    color: #333; /* Zmieniono na ciemniejszy kolor tekstu dla lepszej czytelności */
+    background-color: #F9F8F6;
+    color: #333;
     font-family: montserrat,Sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
 }
 
 .custom-container {
-    text-align: center; /* Centruje tekst w poziomie */
-    /* Dodaj tutaj wszystkie inne style dla .custom-container, jeśli potrzebujesz */
+    text-align: center;
+    width: 80%; /* Ustaw szerokość na 80% ekranu */
+    max-width: 1200px; /* i ogranicz maksymalną szerokość jeśli potrzeba */
+    margin: 0 auto; /* Automatyczny margines powoduje wyśrodkowanie kontenera */
 }
 
 .custom-image-container {
