@@ -16,11 +16,11 @@ body {
 }
 
 .custom-image-container {
-    margin-bottom: 20px; /* Dystans między obrazkiem a tekstem */
+    margin-bottom: 10px; /* Dystans między obrazkiem a tekstem */
 }
 
 .custom-image {
-    width: 40px; /* Ustaw mniejszą szerokość obrazka */
+    width: 20px; /* Ustaw mniejszą szerokość obrazka */
     height: auto; /* Zachowanie proporcji obrazka */
 }
 
