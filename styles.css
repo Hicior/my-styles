@@ -11,3 +11,13 @@ body {
     padding: 20px;
 }
 
+.elementor-heading-title {
+    /* Tu byłyby wszystkie style dotyczące fontów, kolorów itd., które znajdziesz w inspektorze */
+}
+
+.highlight {
+    background-color: #13334d;
+    color: white;
+    padding: 0 4px; /* Przykładowa wartość, dostosuj do potrzeb */
+}
+
