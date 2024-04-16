@@ -84,17 +84,17 @@ body {
 }
 
 .elementor-124 .elementor-element.elementor-element-bd04986 {
-    --display: flex;
-    --flex-direction: column;
-    --container-widget-width: 100%;
-    --container-widget-height: initial;
-    --container-widget-flex-grow: 0;
-    --container-widget-align-self: initial;
-    --background-transition: 0.3s;
-    --margin-top: -7%;
-    --margin-bottom: 0%;
-    --margin-left: 0%;
-    --margin-right: 0%
+    display: flex;
+    flex-direction: column;
+    container-widget-width: 100%;
+    container-widget-height: initial;
+    container-widget-flex-grow: 0;
+    container-widget-align-self: initial;
+    background-transition: 0.3s;
+    margin-top: -7%;
+    margin-bottom: 0%;
+    margin-left: 0%;
+    margin-right: 0%
 }
 
 .elementor-124 .elementor-element.elementor-element-bd04986,
