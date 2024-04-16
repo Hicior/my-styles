@@ -1,7 +1,7 @@
 body {
-    background-color: #E8E8E8; /* Ten kolor zostanie użyty jako tło dla całego body */
+    background-color: #F9F8F6; /* Ten kolor zostanie użyty jako tło dla całego body */
     color: #333; /* Zmieniono na ciemniejszy kolor tekstu dla lepszej czytelności */
-    font-family: Arial, sans-serif;
+    font-family: montserrat,Sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -25,7 +25,10 @@ body {
 }
 
 .elementor-heading-title {
-    /* Dodaj tutaj wszystkie inne style dla .elementor-heading-title, jeśli potrzebujesz */
+    color: #505050;
+    font-family: montserrat,Sans-serif;
+    font-weight: 700;
+    line-height: 50px
 }
 
 .highlight {
