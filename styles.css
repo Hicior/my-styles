@@ -1,29 +1,37 @@
-/* Ustawia tło dla całego dokumentu */
 body {
-    background-color: #f0f0f0; /* Zmień na właściwy kolor tła */
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color: #F4F6F8; /* Przykładowy kolor tła */
+    color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-/* Centruje tekst i dodaje tło do wyróżnionego fragmentu tekstu */
-.elementor-heading-title {
-    text-align: center;
+.custom-container {
+    text-align: center; /* Centruje tekst w poziomie */
+}
+
+.custom-image-container {
+    margin-bottom: 20px; /* Dystans między obrazkiem a tekstem */
+}
+
+.custom-image {
+    width: 100px; /* Przykładowa szerokość obrazka */
+    height: auto; /* Zachowanie proporcji obrazka */
+}
+
+.custom-heading {
+    background-color: #13334d;
+    color: white;
+    display: inline-block; /* By tło obejmowało tylko tekst */
+    padding: 0 4px;
 }
 
 .highlight {
     background-color: #13334d;
     color: white;
-    padding: 0.2em 0.4em; /* Dostosuj wypełnienie do swoich potrzeb */
-    display: inline; /* Lub 'inline-block', jeśli chcesz zdefiniować szerokość/wysokość */
-}
-
-/* Zmniejsza obrazek i wyśrodkowuje go */
-.elementor-widget-image img {
-    max-width: 100px; /* Dostosuj maksymalną szerokość do swoich potrzeb */
-    display: block;
-    margin: 0 auto; /* Wyśrodkowuje obrazek */
+    padding: 0 4px; /* Przykładowa wartość, dostosuj do potrzeb */
 }
