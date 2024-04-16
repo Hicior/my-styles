@@ -1,44 +1,29 @@
+/* Ustawia tło dla całego dokumentu */
 body {
-    background-color: blue;
-    color: white;
+    background-color: #f0f0f0; /* Zmień na właściwy kolor tła */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: Arial, sans-serif;
 }
 
-.welcome-message {
-    background-color: blue;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Przykładowe style dla tytułu - dostosuj zgodnie z tym, co widzisz w inspektorze */
+/* Centruje tekst i dodaje tło do wyróżnionego fragmentu tekstu */
 .elementor-heading-title {
-    font-size: var(--wp--preset--font-size--large); /* Przykład użycia zmiennej */
-    font-weight: bold;
-    margin: 0;
-    padding: 20px 0;
+    text-align: center;
 }
 
-/* Style dla wyróżnionego tekstu */
 .highlight {
-    background-color: #13334d; /* Ciężki kolor tła */
-    color: white; /* Kolor tekstu */
-    padding: 0 4px; /* Wewnętrzne wypełnienie tekstu */
+    background-color: #13334d;
+    color: white;
+    padding: 0.2em 0.4em; /* Dostosuj wypełnienie do swoich potrzeb */
+    display: inline; /* Lub 'inline-block', jeśli chcesz zdefiniować szerokość/wysokość */
 }
 
-/* Jeśli te style mają być stosowane tylko w kontekście tytułu, powinieneś to zaznaczyć */
-.elementor-heading-title .highlight {
-    /* style specyficzne dla .highlight wewnątrz .elementor-heading-title */
-}
-
-/* Stylizacja obrazu - jeśli jest potrzebna */
-.elementor-widget-image {
-    text-align: center; /* Centruje obrazek, jeśli jest to konieczne */
-}
-
-/* Jeśli obraz ma być jakimś konkretnym dekoratorem tekstu, 
-   możesz potrzebować dodatkowych stylów do jego pozycjonowania */
+/* Zmniejsza obrazek i wyśrodkowuje go */
 .elementor-widget-image img {
-    max-width: 100%; /* Zapewnia, że obraz jest responsywny i dopasowuje się do kontenera */
-    height: auto; /* Utrzymuje proporcje obrazu */
+    max-width: 100px; /* Dostosuj maksymalną szerokość do swoich potrzeb */
+    display: block;
+    margin: 0 auto; /* Wyśrodkowuje obrazek */
 }
