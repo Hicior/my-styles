@@ -38,3 +38,9 @@ body {
     /* Usunięto display: inline-block; to jest już domyślnie dla span */
 }
 
+.elementor-heading-titleV2 {
+    color: #13334d;
+    font-family: montserrat,Sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+}
