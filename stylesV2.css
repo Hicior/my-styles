@@ -1,0 +1,69 @@
+.parent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
+    margin-top: 20px;
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+.custom_column {
+    width: 200px;
+    min-width: 200px;
+    box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.3);
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 18px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+  }
+
+.custom_column:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 0px 50px -15px rgba(245,157,36,0.6);
+  }
+
+  /* ARROW */
+
+  .arrow-container {
+    position: absolute;
+    top: 50%; /* Position at the vertical center */
+    transform: translateY(-50%); /* Offset the container by half its height */
+    cursor: pointer;
+    font-size: 26px; /* Adjust size as necessary */
+    color: #000; /* Arrow color */
+    user-select: none; /* Prevents the text inside from being selectable */
+}
+
+.left-arrow {
+    left: 1px; /* Position from the left */
+}
+
+.right-arrow {
+    right: 1px; /* Position from the right */
+}
+
+.arrow-container:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.scrollable-wrapper {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling effect */
+    scrollbar-width: none; /* For Firefox */
+}
+/* For Chrome, Safari, and Edge */
+.scrollable-wrapper::-webkit-scrollbar {
+    display: none; /* This will hide the scrollbar in WebKit browsers */
+}
