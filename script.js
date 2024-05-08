@@ -37,3 +37,6 @@ function initSwiper() {
       },
   });
 }
+
+// Wait for the swiper container to be available in the DOM before initializing Swiper
+waitForElement('.slide-content', initSwiper);
