@@ -38,24 +38,20 @@ function initSwiper() {
   });
 }
 
-// Wait for the swiper container to be available in the DOM before initializing Swiper
-waitForElement('.slide-content', initSwiper);
+document.addEventListener("DOMContentLoaded", function(event) {
+  // Twój kod używający jQuery
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > amountScrolled) {
+      $('button.back-to-top').addClass('show');
+    } else {
+      $('button.back-to-top').removeClass('show');
+    }
+  });
 
-// Back to top
-var amountScrolled = 800;
-var amountScrolledNav = 25;
-
-$(window).scroll(function() {
-  if ( $(window).scrollTop() > amountScrolled ) {
-    $('button.back-to-top').addClass('show');
-  } else {
-    $('button.back-to-top').removeClass('show');
-  }
-});
-
-$('button.back-to-top').click(function() {
-  $('html, body').animate({
-    scrollTop: 0
-  }, 600);
-  return false;
+  $('button.back-to-top').click(function() {
+    $('html, body').animate({
+      scrollTop: 0
+    }, 600);
+    return false;
+  });
 });
