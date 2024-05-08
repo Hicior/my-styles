@@ -73,15 +73,15 @@ function initjQueryDependentScripts() {
 // Wait for the jQuery library to load before running scripts dependent on jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
 
-function handleDOMReady() {
-    console.log('DOM fully loaded and parsed.');
-    // Inicjalizacja skryptów
+function initializeOnClick() {
+    console.log('Inicjalizacja Swipera i skryptów jQuery...');
+    initSwiper();  // Inicjalizacja Swipera
+    initjQueryDependentScripts();  // Inicjalizacja skryptów zależnych od jQuery
 }
 
-if (document.readyState === "complete" || document.readyState === "interactive") {
-    // Jeśli DOM jest już załadowany
-    handleDOMReady();
-} else {
-    // W przeciwnym razie, nasłuchuj na zdarzenie DOMContentLoaded
-    document.addEventListener('DOMContentLoaded', handleDOMReady);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    var initButton = document.getElementById('init-button');
+    if (initButton) {
+        initButton.addEventListener('click', initializeOnClick);
+    }
+});
