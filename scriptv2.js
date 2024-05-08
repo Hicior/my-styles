@@ -73,20 +73,12 @@ function initjQueryDependentScripts() {
 // Wait for the jQuery library to load before running scripts dependent on jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
 
-// Funkcjonalność do przycisku
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM fully loaded and parsed.');
-
-    // Ustawiamy nasłuchiwanie na elemencie body lub innym stałym elemencie,
-    // który zawsze istnieje w strukturze strony.
-    document.body.addEventListener('click', function(event) {
-        console.log('Click detected on body. Event target:', event.target);
-
-        // Sprawdzamy, czy element, który wywołał zdarzenie, jest przyciskiem, który nas interesuje.
-        if (event.target.id === 'reinit-button') {
-            console.log('Reinit button clicked. Initializing scripts...');
-            reinitializeScripts();  // Wywołujemy funkcję ponownie inicjalizującą skrypty.
-            console.log('Scripts reinitialized.');
-        }
-    });
 });
+
+if (document.readyState === "complete" || document.readyState === "interactive") {
+    // Jeśli dokument jest już załadowany, zainicjuj funkcje od razu.
+    console.log('DOM already fully loaded.');
+    reinitializeScripts();
+}
