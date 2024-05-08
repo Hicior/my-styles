@@ -1,3 +1,5 @@
+console.log("Skrypt się załadował");
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded event fired. Setting up the button event listener.');
 
