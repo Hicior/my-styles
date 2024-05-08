@@ -37,21 +37,3 @@ function initSwiper() {
       },
   });
 }
-
-document.addEventListener("DOMContentLoaded", function(event) {
-  // Twój kod używający jQuery
-  $(window).scroll(function() {
-    if ($(window).scrollTop() > amountScrolled) {
-      $('button.back-to-top').addClass('show');
-    } else {
-      $('button.back-to-top').removeClass('show');
-    }
-  });
-
-  $('button.back-to-top').click(function() {
-    $('html, body').animate({
-      scrollTop: 0
-    }, 600);
-    return false;
-  });
-});
