@@ -57,22 +57,35 @@ function waitForElement(selector, callback) {
     }
 }
 
-// Setup MutationObserver to reinitialize scripts on DOM changes
 function setupMutationObserver() {
     var observer = new MutationObserver(function(mutations) {
+        let shouldReInit = false;  // Flaga determinująca potrzebę re-inicjalizacji
         mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length) {
-                waitForElement('.slide-content', initSwiper);
-                waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
+            for (let node of mutation.addedNodes) {  // Przechodzimy przez wszystkie dodane węzły
+                if (node.nodeType === 1 && node.matches('.slide-content, script[src*="jquery"]')) {  // Sprawdzamy, czy dodany węzeł to nasz interesujący element
+                    shouldReInit = true;
+                }
             }
         });
+
+        if (shouldReInit) {
+            debounceInit();  // Debouncowana funkcja inicjująca
+        }
     });
 
     var config = { childList: true, subtree: true };
     observer.observe(document.body, config);
 }
 
-// Initialize the swiper and set up the mutation observer after the swiper container is detected
+function debounceInit() {
+    clearTimeout(window.debounceInitTimer);
+    window.debounceInitTimer = setTimeout(function() {
+        initSwiper();
+        initjQueryDependentScripts();
+    }, 500);  // Debounce timer ustawiony na 500 ms
+}
+
+// Inicjacja obserwatora razem z oczekiwaniem na element
 waitForElement('.slide-content', function() {
     initSwiper();
     setupMutationObserver();
