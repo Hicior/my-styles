@@ -72,29 +72,64 @@ function initjQueryDependentScripts() {
 // Czekaj na załadowanie biblioteki jQuery przed uruchomieniem skryptów zależnych od jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
 
-// Funkcja ustawiająca MutationObserver dla przycisku back-to-top
-function setupButtonObserver() {
-    const backButton = document.querySelector('button.back-to-top');
-    if (!backButton) {
-        console.log('Back-to-top button not found, observer not set.');
-        return;
+function waitForElement(selector, callback) {
+    const element = document.querySelector(selector);
+    if (element) {
+        console.log(selector + ' found.');
+        callback(element);
+    } else {
+        console.log(selector + ' not found, retrying...');
+        setTimeout(function() { waitForElement(selector, callback); }, 500);
     }
+}
 
+function initSwiper() {
+    console.log('Initializing Swiper...');
+    var swiper = new Swiper(".slide-content", {
+        slidesPerView: 3,
+        spaceBetween: 25,
+        centerSlide: 'true',
+        fade: 'true',
+        grabCursor: 'true',
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            520: {
+                slidesPerView: 2,
+            },
+            950: {
+                slidesPerView: 3,
+            },
+        },
+    });
+}
+
+function setupButtonObserver(button) {
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-            if (mutation.attributeName === 'class' && backButton.classList.contains('show')) {
+            if (mutation.attributeName === 'class' && button.classList.contains('show')) {
                 console.log('Back-to-top button class changed to show, reinitializing Swiper.');
-                initSwiper(); // Re-inicjalizacja Swipera
+                initSwiper();
             }
         });
     });
 
-    observer.observe(backButton, {
-        attributes: true // Monitoruje tylko zmiany atrybutów
+    observer.observe(button, {
+        attributes: true
     });
+    console.log('Observer set on back-to-top button.');
 }
 
-// Dodaj tę funkcję do Twojego skryptu, który jest już załadowany po załadowaniu strony
 document.addEventListener('DOMContentLoaded', function() {
-    setupButtonObserver();
+    waitForElement('button.back-to-top', setupButtonObserver);
 });
