@@ -72,3 +72,10 @@ function initjQueryDependentScripts() {
 
 // Wait for the jQuery library to load before running scripts dependent on jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
+
+document.addEventListener('DOMContentLoaded', function() {
+    var reinitButton = document.getElementById('reinit-button');
+    if (reinitButton) {
+        reinitButton.addEventListener('click', reinitializeScripts);
+    }
+});
