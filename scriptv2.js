@@ -73,12 +73,15 @@ function initjQueryDependentScripts() {
 // Wait for the jQuery library to load before running scripts dependent on jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
 
-document.addEventListener('DOMContentLoaded', function() {
+function handleDOMReady() {
     console.log('DOM fully loaded and parsed.');
-});
+    // Inicjalizacja skryptów
+}
 
 if (document.readyState === "complete" || document.readyState === "interactive") {
-    // Jeśli dokument jest już załadowany, zainicjuj funkcje od razu.
-    console.log('DOM already fully loaded.');
-    reinitializeScripts();
+    // Jeśli DOM jest już załadowany
+    handleDOMReady();
+} else {
+    // W przeciwnym razie, nasłuchuj na zdarzenie DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', handleDOMReady);
 }
