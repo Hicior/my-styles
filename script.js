@@ -71,3 +71,30 @@ function initjQueryDependentScripts() {
 
 // Czekaj na załadowanie biblioteki jQuery przed uruchomieniem skryptów zależnych od jQuery
 waitForElement('script[src*="jquery"]', initjQueryDependentScripts);
+
+// Funkcja ustawiająca MutationObserver dla przycisku back-to-top
+function setupButtonObserver() {
+    const backButton = document.querySelector('button.back-to-top');
+    if (!backButton) {
+        console.log('Back-to-top button not found, observer not set.');
+        return;
+    }
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'class' && backButton.classList.contains('show')) {
+                console.log('Back-to-top button class changed to show, reinitializing Swiper.');
+                initSwiper(); // Re-inicjalizacja Swipera
+            }
+        });
+    });
+
+    observer.observe(backButton, {
+        attributes: true // Monitoruje tylko zmiany atrybutów
+    });
+}
+
+// Dodaj tę funkcję do Twojego skryptu, który jest już załadowany po załadowaniu strony
+document.addEventListener('DOMContentLoaded', function() {
+    setupButtonObserver();
+});
