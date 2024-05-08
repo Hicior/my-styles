@@ -58,35 +58,20 @@ function waitForElement(selector, callback) {
 }
 
 function setupMutationObserver() {
+    var target = document.querySelector('.sections');  // Ustal cel obserwacji na div 'sections'
     var observer = new MutationObserver(function(mutations) {
-        let shouldReInit = false;  // Flaga determinująca potrzebę re-inicjalizacji
         mutations.forEach(function(mutation) {
-            for (let node of mutation.addedNodes) {  // Przechodzimy przez wszystkie dodane węzły
-                if (node.nodeType === 1 && node.matches('.slide-content, script[src*="jquery"]')) {  // Sprawdzamy, czy dodany węzeł to nasz interesujący element
-                    shouldReInit = true;
-                }
+            if (mutation.type === 'childList' && mutation.addedNodes.length) {  // Sprawdzaj tylko dodanie nowych węzłów
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === 1 && node.classList.contains('section-wrapper')) {  // Jeśli dodany węzeł jest odpowiednim elementem
+                        initSwiper();
+                        initjQueryDependentScripts();
+                    }
+                });
             }
         });
-
-        if (shouldReInit) {
-            debounceInit();  // Debouncowana funkcja inicjująca
-        }
     });
 
-    var config = { childList: true, subtree: true };
-    observer.observe(document.body, config);
+    var config = { childList: true, subtree: true };  // Obserwuj dodanie/usunięcie dzieci, w tym pod-drzew
+    observer.observe(target, config);  // Rozpocznij obserwację
 }
-
-function debounceInit() {
-    clearTimeout(window.debounceInitTimer);
-    window.debounceInitTimer = setTimeout(function() {
-        initSwiper();
-        initjQueryDependentScripts();
-    }, 500);  // Debounce timer ustawiony na 500 ms
-}
-
-// Inicjacja obserwatora razem z oczekiwaniem na element
-waitForElement('.slide-content', function() {
-    initSwiper();
-    setupMutationObserver();
-});
