@@ -58,7 +58,12 @@ function waitForElement(selector, callback) {
 }
 
 function setupMutationObserver() {
-    var target = document.querySelector('.sections');  // Ustal cel obserwacji na div 'sections'
+    var target = document.querySelector('.sections');
+    if (!target) {
+        console.warn('Target element not found.');
+        return; // Jeśli element nie istnieje, przerwij funkcję
+    }
+    console.log('Setting up observer for:', target);
     var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             if (mutation.type === 'childList' && mutation.addedNodes.length) {  // Sprawdzaj tylko dodanie nowych węzłów
