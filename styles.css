@@ -111,10 +111,10 @@
 }
 
 .Under-Overlay-Container {
-  display: flex; /* Use flexbox to layout children side by side */
+  display: flex;
   align-items: center;
-  background: #F9F8F6;
   justify-content: center;
+  background: #F9F8F6;
   max-width: 1100px;
   margin-right: auto;
   margin-left: auto;
@@ -456,4 +456,10 @@
 /* Pokaż przycisk po najechaniu - przykładowa interakcja */
 .scroll-to-top:hover {
   display: block;
+}
+
+@media (max-width: 600px) {
+  .Under-Overlay-Container {
+    display: block;
+  }
 }
